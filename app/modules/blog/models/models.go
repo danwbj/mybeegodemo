@@ -20,11 +20,12 @@ type Comment struct {
 
 
 func init() {
-	    // register model
+	// register model
     orm.RegisterModel(new(Blog),new(Comment))
 
     // create table
-    orm.RunSyncdb("default", false, true)
+    orm.RunSyncdb("default", false, false)
 	// orm.RegisterModelWithPrefix("bb_", new(Blog),new(User))
-    fmt.Println("--------------models init sucess")
+    fmt.Println("--------------blog models init success")
+    orm.ResetModelCache()
 }

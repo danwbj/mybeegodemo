@@ -1,6 +1,7 @@
 package models
 import (
 	"github.com/astaxie/beego/orm"
+    "fmt"
 )
 
 // Model Struct
@@ -15,5 +16,7 @@ func init() {
 	// register model
     orm.RegisterModel(new(User))
     // create table
-    orm.RunSyncdb("default", false, true)
+    orm.RunSyncdb("default", false, false)
+    fmt.Println("--------------user models init success")
+    orm.ResetModelCache()
 }

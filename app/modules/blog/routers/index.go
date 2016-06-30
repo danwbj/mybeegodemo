@@ -16,6 +16,7 @@ func init() {
 	// beego.NSRouter("/blog", &controllers.BlogController{}, "get:GetAll"),
 		beego.NSNamespace("/blog",
 		beego.NSRouter("/blogs", &controllers.BlogController{}, "post:CreateBlog"),
+		beego.NSRouter("/blogs/:id", &controllers.BlogController{}, "get:ReadBlog"),
 		beego.NSRouter("/all", &controllers.BlogController{}, "get:GetAll"),
 	/*		beego.NSInclude(
 				&controllers.BlogController{},

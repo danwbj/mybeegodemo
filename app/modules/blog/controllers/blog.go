@@ -38,3 +38,15 @@ func (c *BlogController)  CreateBlog(){
     fmt.Printf("ID: %d, ERR: %v\n", id, err)
 }
 
+func (c *BlogController)  ReadBlog(){
+  o := orm.NewOrm()
+  blog := models.Blog{Id: 1}
+	err := o.Read(&blog)
+	if err != nil {
+		c.Data["json"]="error"
+	}
+	c.Data["json"]="success"
+  c.ServeJSON()
+  
+}
+
